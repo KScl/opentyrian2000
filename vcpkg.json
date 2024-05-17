@@ -1,0 +1,41 @@
+{
+  "name": "opentyrian2000",
+  "version": "2000.20240218",
+  "description": "OpenTyrian2000 is an open-source port of the DOS game Tyrian. It is a fork of OpenTyrian, with the end goal being to replicate the experience of Tyrian 2000 as closely as possible.",
+  "$schema": "https://raw.githubusercontent.com/microsoft/vcpkg-tool/main/docs/vcpkg.schema.json",
+  "dependencies": [
+    {
+      "name": "vcpkg-cmake",
+      "host": true
+    },
+    {
+      "name": "vcpkg-cmake-config",
+      "host": true
+    },
+    {
+      "name": "sdl2",
+      "host": true
+    }
+  ],
+  "features": {
+    "midi": {
+      "description": "Enable MIDI music support",
+      "dependencies": [
+        "midiproc",
+        {
+          "name": "sdl2-mixer-ext",
+          "features": [
+            "fluidsynth",
+            {
+              "name": "nativemidi",
+              "platform": "(windows & !uwp) | osx"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "default-features": [
+    "midi"
+  ]
+}
