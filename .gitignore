@@ -35,3 +35,8 @@ tyrian.sav
 
 # Doxygen output
 /doc/doxygen/
+
+tyrian2000
+.vscode
+vcpkg_installed/
+.DS_Store
