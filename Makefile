@@ -1,11 +1,17 @@
 # BUILD SETTINGS ###############################################################
 
+
+ifeq (Darwin, $(shell uname))
+    PLATFORM := UNIX
+    TYRIAN_DIR = $(gamesdir)/opentyrian2000
+else
 ifneq ($(filter Msys Cygwin, $(shell uname -o)), )
     PLATFORM := WIN32
     TYRIAN_DIR = C:\\TYRIAN
 else
     PLATFORM := UNIX
     TYRIAN_DIR = $(gamesdir)/opentyrian2000
+endif
 endif
 
 WITH_NETWORK := true
